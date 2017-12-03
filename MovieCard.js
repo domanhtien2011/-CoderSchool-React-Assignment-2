@@ -1,14 +1,35 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { Component } from "react";
+import {
+  TouchableHighlight,
+  View,
+  Text,
+  StyleSheet,
+  Image
+} from "react-native";
 
 // create a component
 class MovieCard extends Component {
   render() {
+    const img = {
+      uri: `https://image.tmdb.org/t/p/w342${
+        this.props.poster_path
+      }`
+    };
+
     return (
-      <View style={styles.container}>
-        <Text>MovieCard</Text>
-      </View>
+      <TouchableHighlight onPress={this.props.loadProfile}>
+        <View style={styles.container}>
+          <Image
+            style={{
+              width: 300,
+              height: 150
+            }}
+            source={img}
+          />
+          <Text>{this.props.title}</Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -17,10 +38,9 @@ class MovieCard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2c3e50',
-  },
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
 
 //make this component available to the app
