@@ -9,9 +9,12 @@ const API_KEY = "b0e53c16a13148a3ffc087078f52673f";
 
 const Routes = StackNavigator({
   MovieList: {
-    screen: MovieList,
-    MovieProfile: {
-      screen: MovieProfile
+    screen: MovieList
+  },
+  MovieProfile: {
+    screen: MovieProfile,
+    navigationOptions: ({navigation}) => {
+      title : `${navigation.state.params.title}`
     }
   }
 });

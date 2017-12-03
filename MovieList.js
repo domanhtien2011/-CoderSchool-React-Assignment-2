@@ -8,12 +8,13 @@ import {
   ActivityIndicator
 } from "react-native";
 import MovieCard from "./MovieCard";
+import MovieProfile from "./MovieProfile";
 
 // create a component
 class MovieList extends Component {
   render() {
     const screenProps = this.props.screenProps;
-    const navigate    = this.props.navigation.navigate;
+    const navigate = this.props.navigation.navigate;
     // the code above can be written as const {navigate} = this.props.navigation
 
     return (
@@ -25,7 +26,7 @@ class MovieList extends Component {
             <MovieCard
               {...movieItem.item}
               loadProfile={() => {
-                nagivate("MovieProfile");
+                return navigate("MovieProfile", movieItem.item);
               }}
             />
           )}
