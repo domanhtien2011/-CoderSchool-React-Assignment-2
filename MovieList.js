@@ -1,6 +1,6 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import React, {Component} from "react";
+import {View, Text, StyleSheet, FlatList} from "react-native";
 import MovieCard from "./MovieCard";
 
 // create a component
@@ -8,11 +8,17 @@ class MovieList extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {this.props.loading
+          ? <Text>Loading....
+            </Text>
+          : null
+}
         <FlatList
           data={this.props.movies}
           keyExtractor={movie => movie.id}
-          renderItem={movieItem => <MovieCard {...movieItem.item} />}
-        />
+          renderItem={movieItem => <MovieCard {...movieItem.item}/>}
+          onRefresh={this.props.loadMore}
+          refreshing={this.props.loading}/>
       </View>
     );
   }
