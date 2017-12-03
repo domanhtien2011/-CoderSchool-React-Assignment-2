@@ -1,33 +1,28 @@
-# Project 1 - *Name of App Here*
+# Assignment 2 - *Awesome Movies*
 
 **Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **7** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can view a list of movies currently playing in theaters.
-- [ ] User can show/hide details about each movie.
-- [ ] User sees loading state while waiting for the API.
-- [ ] User sees an error message when there is a network error.
-- [ ] User can refresh the movie list.
-- [ ] User can search/filter the movie results via a search bar.
-- [ ] User can use the page on both desktop and mobile viewport sizes.
+- [Yes] User can view a list of movies currently playing in theaters.
+- [No] User can show/hide details about each movie.
+- [Yes] User sees loading state while waiting for the API.
+- [Yes] User sees an error message when there is a network error.
+- [No] User can refresh the movie list.
+- [Yes] User can search/filter the movie results via a search bar.
 
 The following **optional** features are implemented:
 
-- [ ] Toggle between **Now Playing** and **Top Rated** movies.
-- [ ] Sort Movies by rating, popularity, release date.
-- [ ] Animations on open/close details.
-- [ ] Infinite Scrolling.
-- [ ] Movie Poster Lightbox on click
-- [ ] Multiple Layout Options
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
+- [No] Toggle between **Now Playing** and **Top Rated** movies.
+- [No] Sort Movies by rating, popularity, release date.
+- [No] Animations on open/close details.
+- [Yes] Infinite Scrolling.
+- [Yes] Movie Poster Lightbox on touch
+- [No] Multiple Layout Options
 
 ## Video Walkthrough
 
@@ -43,7 +38,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Tien Manh Do]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

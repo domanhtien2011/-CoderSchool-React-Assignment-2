@@ -10,7 +10,7 @@ import {
 import TEST_DATA from "./data.json";
 import MovieList from "./MovieList";
 import MovieProfile from "./MovieProfile";
-import { StackNavigator } from "react-navigation";
+import { StackNavigator, Header } from "react-navigation";
 
 const API_KEY = "b0e53c16a13148a3ffc087078f52673f";
 
@@ -109,6 +109,7 @@ export default class App extends React.Component {
           flex: 1
         }}
       >
+        <Text style={styles.appName}>Awesome Movies</Text>
         <TextInput
           placeholder="Search movies by name here...."
           style={styles.textInput}
@@ -128,6 +129,13 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  appName: {
+    textAlign: 'center', // <-- the magic
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 20,
+    width: 200,
+  },
   textInput: {
     height: 30,
     borderWidth: 1,
