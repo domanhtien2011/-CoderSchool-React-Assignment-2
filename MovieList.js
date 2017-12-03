@@ -5,7 +5,8 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  ActivityIndicator
+  ActivityIndicator,
+  TextInput
 } from "react-native";
 import MovieCard from "./MovieCard";
 import MovieProfile from "./MovieProfile";
@@ -16,7 +17,6 @@ class MovieList extends Component {
     const screenProps = this.props.screenProps;
     const navigate = this.props.navigation.navigate;
     // the code above can be written as const {navigate} = this.props.navigation
-
     return (
       <View>
         <FlatList

@@ -10,7 +10,7 @@ class MovieProfile extends Component {
       uri: `https://image.tmdb.org/t/p/w1000_and_h563_bestv2${props.poster_path}`
     };
     return (
-      <View>
+      <View style={styles.container}>
         <Image
           style={{
           width: 300,
@@ -27,5 +27,12 @@ class MovieProfile extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 //make this component available to the app
 export default MovieProfile;
