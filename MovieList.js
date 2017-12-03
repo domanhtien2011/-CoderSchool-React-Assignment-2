@@ -1,35 +1,51 @@
 //import liraries
-import React, {Component} from "react";
-import {View, Text, StyleSheet, FlatList} from "react-native";
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator
+} from "react-native";
 import MovieCard from "./MovieCard";
 
 // create a component
 class MovieList extends Component {
   render() {
+    const screenProps = this.props.screenProps;
+    const navigate    = this.props.navigation.navigate;
+    // the code above can be written as const {navigate} = this.props.navigation
+
     return (
-      <View style={styles.container}>
-        {this.props.loading
-          ? <Text>Loading....
-            </Text>
-          : null
-}
+      <View>
         <FlatList
-          data={this.props.movies}
+          data={screenProps.movies}
           keyExtractor={movie => movie.id}
-          renderItem={movieItem => <MovieCard {...movieItem.item}/>}
-          onRefresh={this.props.loadMore}
-          refreshing={this.props.loading}/>
+          renderItem={movieItem => (
+            <MovieCard
+              {...movieItem.item}
+              loadProfile={() => {
+                nagivate("MovieProfile");
+              }}
+            />
+          )}
+          refreshing={screenProps.loading}
+          onEndReached={screenProps.loadMore}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={() => (
+            <View
+              style={{
+                flex: 1,
+                padding: 10
+              }}
+            >
+              <ActivityIndicator size="large" />
+            </View>
+          )}
+        />
       </View>
     );
   }
 }
 
-// define your styles
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20
-  }
-});
-
-//make this component available to the app
 export default MovieList;
