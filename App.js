@@ -4,7 +4,8 @@ import {
   Text,
   View,
   TouchableHighlight,
-  TextInput
+  TextInput,
+  NetInfo
 } from "react-native";
 import TEST_DATA from "./data.json";
 import MovieList from "./MovieList";
@@ -34,7 +35,8 @@ export default class App extends React.Component {
       search: "",
       movies: [],
       loading: false,
-      page: 1
+      page: 1,
+      netInfo: false
     };
   }
 
@@ -75,7 +77,9 @@ export default class App extends React.Component {
   }
 
   componentWillMount(props) {
-    this.fetchWithPage(1);
+    NetInfo.addEventListener('connectionChange', (connectionInfor) =>{
+      connectionInfor ? this.fetchWithPage(1) : alert('Sorry, please check your connection!!!')
+    })
   }
 
   loadMore() {

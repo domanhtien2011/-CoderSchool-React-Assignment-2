@@ -12,7 +12,7 @@ import {
 class MovieCard extends Component {
   render() {
     const img = {
-      uri: `https://image.tmdb.org/t/p/w1000_and_h563_bestv2${
+      uri: `https://image.tmdb.org/t/p/w342${
         this.props.poster_path
       }`
     };
