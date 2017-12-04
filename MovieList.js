@@ -18,7 +18,13 @@ class MovieList extends Component {
     const navigate = this.props.navigation.navigate;
     // the code above can be written as const {navigate} = this.props.navigation
     return (
-      <View>
+      <View style={styles.container} >
+        <TextInput
+          placeholder="Search movies by name here...."
+          style={styles.textInput}
+          onChangeText={text => screenProps.updateSearch(text)}
+          value={this.search}
+        />
         <FlatList
           data={screenProps.movies}
           keyExtractor={movie => movie.id}
@@ -48,5 +54,23 @@ class MovieList extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff'
+  },
+  textInput: {
+    height: 45,
+    borderWidth: 1,
+    borderColor: "#cecece",
+    marginTop: 50,
+    marginBottom: 25,
+    marginHorizontal: 20,
+    borderRadius: 8,
+    paddingLeft: 10,
+    borderColor: 'transparent',
+    backgroundColor: '#ecf0f1'
+  }
+})
 
 export default MovieList;
