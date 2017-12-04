@@ -5,6 +5,7 @@ import {
   View,
   TouchableHighlight,
   TextInput,
+  Dimensions,
   NetInfo
 } from "react-native";
 import TEST_DATA from "./data.json";
@@ -16,12 +17,15 @@ const API_KEY = "b0e53c16a13148a3ffc087078f52673f";
 
 const Routes = StackNavigator({
   MovieList: {
-    screen: MovieList
+    screen: MovieList,
+    navigationOptions: {
+      headerStyle: {display:"none"},
+    }
   },
   MovieProfile: {
     screen: MovieProfile,
     navigationOptions: ({ navigation }) => {
-      title: `${navigation.state.params.title}`;
+      title: `${navigation.state.params.title}`
     }
   }
 });
@@ -109,18 +113,12 @@ export default class App extends React.Component {
           flex: 1
         }}
       >
-        <Text style={styles.appName}>Awesome Movies</Text>
-        <TextInput
-          placeholder="Search movies by name here...."
-          style={styles.textInput}
-          onChangeText={text => this.updateSearch(text)}
-          value={this.state.search}
-        />
         <Routes
           screenProps={{
             movies: filteredMovies,
             loading: this.state.loading,
-            loadMore: this.loadMore
+            loadMore: this.loadMore,
+            updateSearch: this.updateSearch.bind(this)
           }}
         />
       </View>
@@ -128,19 +126,14 @@ export default class App extends React.Component {
   }
 }
 
+var width = Dimensions.get('window').width; 
+
 const styles = StyleSheet.create({
   appName: {
-    textAlign: 'center', // <-- the magic
+    width: width * 1,
+    textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
-    marginTop: 20,
-    width: 200,
-  },
-  textInput: {
-    height: 30,
-    borderWidth: 1,
-    borderColor: "#cecece",
-    marginTop: 50,
-    marginHorizontal: 10
+    marginTop: 50
   }
 });
